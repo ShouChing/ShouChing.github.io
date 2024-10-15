@@ -9,13 +9,13 @@
     <div id="file-list"></div>
     <script>
         async function fetchFiles() {
-            const response = await fetch('https://api.github.com/repos/ShouChing/ShouChing.github.io/contents/');
+            const response = await fetch('https://api.github.com/repos/你的用戶名/你的repository/contents/');
             const files = await response.json();
             const txtFiles = files.filter(file => file.name.endsWith('.txt'));
             const fileListDiv = document.getElementById('file-list');
             txtFiles.forEach(file => {
                 const fileLink = document.createElement('a');
-                fileLink.href = `https://raw.githubusercontent.com/ShouChing/ShouChing.github.io/main/${file.path}`;
+                fileLink.href = `https://raw.githubusercontent.com/你的用戶名/你的repository/main/${file.path}`;
                 fileLink.target = '_blank';  // 在新分頁打開
                 fileLink.textContent = file.name;
                 fileListDiv.appendChild(fileLink);
